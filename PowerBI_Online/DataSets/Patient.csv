@@ -1,0 +1,21 @@
+Patient_ID,Patient_Name,Address,Age,Gender,Insurance_ID
+101,John Smith,123 Main Street New York NY 10001,30,M,12345
+102,Jane Doe,456 Park Avenue Los Angeles CA 90001,25,F,54321
+103,Mike Johnson,789 Oak Road Chicago IL 60601,,,98765
+104,Sarah Johnson,,16,F,45678
+105,Michael Anderson,111 Pine Avenue Miami FL 33101,50,M,78901
+106,Emily Thompson,222 Maple Road Seattle WA 98101,28,F,23456
+107,David Wilson,444 Broadway Street Boston MA 02108,42,M,34567
+108,Jennifer Lee,555 Market Avenue San Diego CA 92101,31,F,89012
+109,Robert Smith,666 Lakeview Drive Denver CO 80201,55,M,90123
+110,Emma Davis,777 Oak Street Houston TX 77001,16,F,34567
+111,Daniel Johnson,888 Elm Avenue Atlanta GA 30301,47,M,45678
+112,Olivia Davis,999 Pine Lane Phoenix AZ 85001,33,F,56789
+113,William Johnson,1111 Cedar Lane Dallas TX 75201,60,M,67890
+114,Sophia Thompson,2222 Oak Drive Charlotte NC 28201,16,F,78901
+115,James Wilson,3333 Pine Court San Antonio TX 78201,39,M,89012
+116,Ava Martinez,4444 Elm Street Austin TX 73301,45,F,90123
+117,,5555 Oak Avenue Nashville TN 37201,32,M,12345
+118,,6666 Pine Road Orlando FL 32801,29,F,23456
+119,Benjamin Thompson,7777 Maple Avenue Philadelphia PA 19101,51,M,34567
+120,Charlotte Wilson,8888 Pine Street Baltimore MD 21201,15,F,45678

@@ -1,0 +1,154 @@
+Day2_PowerBI_13_05_2025
+
+DAX (Data Analysis Expressions) (Power BI)
+------------------------------------------
+Other Names of DAX
+  - Power BI Formula Language
+  - Power Pivot Formula Language
+  - Tabular Expression Language
+  - BI Calculation Engine
+  - Microsoft BI Function Library
+
+Used in:
+  - Power BI
+  - Power Pivot in Excel
+  - SSAS Tabular Models
+
+Purpose:
+- Create calculated columns
+- Create measures
+- Create calculated tables
+- Use time intelligence and filtering logic
+
+Preparing data for Power BI (or) Power BI Data Preparation Pipeline
+---------------------------    ----------------------------------
+Preparing data -------------> Designing models -------------> Creating Reports
+	Import				Relations			Elements
+	Transform			Properties			Customisation
+	Cleanse				Calculations			Publication
+
+1. Preparing Data
+- **Import** → Load data from sources  
+- **Transform** → Rename, restructure, convert types  
+- **Cleanse** → Fill blanks, trim, fix types
+
+2. Designing Models
+- **Relations** → Create relationships  
+- **Properties** → Format columns, hide fields  
+- **Calculations** → Create calculated columns, measures
+
+3. Creating Reports
+- **Elements** → Tables, charts, KPIs  
+- **Customization** → Themes, bookmarks, filters  
+- **Publication** → Publish to Power BI Service
+
+
+Purpose of DAX(Data Analysis Expression)
+-----------------------------------------
+It is a library of functions and operators that can be combined to build formulas and expressions use Microsoft BI Tools.
+
+Core Components
+---------------
+1. Calculated Column
+	It evaluates and stores a scalar (single) value for each row in the table column, stored physically in data model for every row, Increases model size significantly, Can slow down large models because data is pre-computed and stored, Used when you need row-wise calculated data available in data model, Appears like regular column in the Fields pane and usable in slicers, filters etc..
+		FName + LName -> FullName
+		Price * Quantity -> TotalCost
+		Profit = Sales - Cost
+- Evaluated row-by-row
+- Stored in model (increases size)
+	FullName = [FirstName] & " " & [LastName]
+	TotalCost = [Price] * [Quantity]
+	Profit = [Sales] - [Cost]
+
+2. Measure
+	It evaluates an aggregate value like sum, count etc dynamically, Only formula is saved and values are computed on demand, Do not increase model size, More optimised and computed during Query execution, Used in visualizations to summarize or aggregate data, Used only inside visuals and doesn't appear as a column.
+		TotalSales = SUM(Sales[Amount]) -> To show total salesin visual
+- Aggregated result
+- Calculated on-demand
+	TotalSales = SUM(Sales[Amount])
+	AveragePrice = AVERAGE(Products[Price])
+
+3. Calculated Table
+- Returns a new table from expression
+	TopProducts = TOPN(5, Sales, Sales[Amount], DESC)
+
+| Feature           | Calculated Column | Measure     |
+|-------------------|-------------------|-------------|
+| Evaluated         | Per row           | On query    |
+| Stored            | Yes               | No          |
+| Used in slicers   | Yes               | No          |
+| Performance       | Slower            | Faster      |
+
+
+DAX Formulas -> Similar to Excel formulas
+------------
+SUM('TABLE NAME'[COL_NAME])
+SUM(TableName[COL_NAME])
+
+DAX Data Types
+--------------
+- Text (String)
+- Whole Number
+- Decimal Number
+- Currency
+- Date, Time, DateTime
+- Boolean (TRUE/FALSE)
+- Blank (null)
+
+DAX Operators
+-------------
+| Type         | Operators                     | Description                       |
+|--------------|-------------------------------|-----------------------------------|
+| Arithmetic   | +, -, *, /                    | Add, Subtract, Multiply, Division |
+| Exponential  | ^                             | Power                             |
+| Comparison   | =, <>, >, <, >=, <=           | Comparisons                       |
+| Text         | &                             | Concatenation                     |
+| Logical      | AND, OR, NOT                  | Boolean logic                     |
+
+& -> Concatenation
+^ -> Exponential
+<> -> Not Equal
+
+Aggregate Functions
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Sl.No| Function       | Syntax                    | Description              | Counts           | Best Used For         | Blanks | BOOLEAN  |  Expressions 
+------------------------------------------------------------------------------------------------------------------------------------------------------------ 
+|   1 | SUM            | `SUM(Table[Column])`      | Adds all numeric         | Only Numbers     | Numeric column        | ✅ Yes | ❌ No   | ❌ No       
+       		        			    	values in a column     		            totals		  	   	      
+|   2 | SUMX           | `SUMX(Table, Expression)  | Adds the result of       | Expression-based | Row-level calculated  | ✅ Yes | ❌ No   | ✅ Yes       
+       		        			      evaluating an 	       			     totals		  	   	      
+       		        			       expression row by row   			    			  	   	      
+|   3 | MIN            | `MIN(Table[Column])`      | Returns the smallest     | Only Numbers     | Finding minimum value | ✅ Yes | ❌ No   | ❌ No        
+       		        			    	numeric value in a     			  			  	   	      
+       		        			    	column		       			  			  	   	      
+|   4 | MINX           | `MINX(Table, Expression)` | Returns the minimum of   | Expression-based | Custom calculated     | ✅ Yes | ❌ No   | ✅ Yes       
+						    	the values from an				minimums
+						    	evaluated expression
+						   |	per row
+
+|   5 | MAX            | `MAX(Table[Column])`      | Returns the largest      | Only Numbers     | Finding maximum value | ✅ Yes | ❌ No   | ❌ No        
+							numeric value in
+							a column
+							
+|   6 | MAXX           | `MAXX(Table, Expression)` | Returns the maximum of   | Expression-based | Custom calculated     | ✅ Yes | ❌ No  | ✅ Yes       
+							the values from an				maximums
+							evaluated expression
+							per row
+
+|  7  | COUNT          | `COUNT(Table[Column])`    | Counts only numeric,    | Only Numbers      |Numeric field counts | ✅ Yes  | ❌ No   | ❌ No
+							non-blank values
+
+|  8  | COUNTA         | `COUNTA(Table[Column])`   | Counts all non-blank    |Text, Dates, Number| General non-blank   | ✅ Yes  | ✅ Yes  | ❌ No
+							values regardless				counting
+							of type
+
+|  9  | COUNTX         | COUNTX(Table, Expression) | Counts non-blank results| Expression-based  | Conditional/non-   | ✅ Yes   | ✅ Yes  | ✅ Yes
+							of an expression			     static counts
+							evaluated row by row
+
+|  10 | COUNTBLANK     | COUNTBLANK(Table[Column]) | Counts how many blank   | Blanks            | Data completeness | ❌ No     | ❌ No   | ❌ No
+ 							(null/empty) values 				checks
+							exist in a column
+
+|  11 | COUNTROWS      | `COUNTROWS(Table)`        | Returns total number    | All Rows          | Table size,       | ✅ Yes    | ✅ Yes  | ❌ No
+							of rows in a table			      row-based KPIs

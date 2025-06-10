@@ -1,0 +1,7 @@
+Day3_PowerBI_14_05_2025
+
+Choose Column -> Remove
+Select all Columns -> Transform -> Detect Data Type
+
+Control Characters -> White Spaces
+Cross Filter Dierction

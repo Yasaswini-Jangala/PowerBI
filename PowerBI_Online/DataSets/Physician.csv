@@ -1,0 +1,24 @@
+ID,First_Name,Last_Name,Specialty,License_Number
+201,John,Smith,Cardiology,12345
+202,Jane,Doe,Pediatrics,67890
+203,,Johnson,,54321
+204,Sarah,Johnson,Cardiology,98765
+205,Noah,,Pediatrics,45678
+206,Grace,Thompson,Internal Medicine,34567
+207,Ethan,Davis,Surgery,87654
+208,Olivia,Miller,Dermatology,76543
+209,William,Brown,Neurology,23456
+210,Ava,Johnson,Pediatrics,98760
+211,James,Lee,Orthopedics,87651
+212,Isabella,White,Oncology,43210
+213,Liam,Martin,Cardiology,98765
+214,Sophia,Martinez,Internal Medicine,65432
+215,Benjamin,Jackson,Surgery,12345
+216,Emma,Anderson,Obstetrics,89012
+217,Alexander,Williams,Neurology,45678
+218,Mia,Davis,Dermatology,56789
+219,Elijah,Garcia,Orthopedics,67890
+220,Avery,Clark,Oncology,78901
+221,Abigail,Brown,Pediatrics,89012
+222,Daniel,Harris,Cardiology,90123
+223,Sofia,King,Internal Medicine,34567

@@ -1,0 +1,54 @@
+Day1_PowerBI_12_05_2025
+
+Power BI
+--------
+Power BI is an Business Analytic Tool, Data Visualization Tool. It is developed by Microsoft. It is used to connect to various data sources and transform raw data into meaningful insights, visualise it through interactive dashboards and reports.
+
+Why Power BI
+------------
+Easy to Use, Integration of Data, Data Modelling(Powerful data Analysis Expressions DAX), Interactive Dashboards, Sharing and Collaboration, Cost effective.
+
+Key components of Power BI 
+	1. Power BI Desktop -> Main tool for creating reports and data models.
+	2. Power BI Service(Cloud) -> Online platform for sharing and collaboration.
+	3. Power BI Mobile -> Mobile apps to view dashboards and reports.
+	4. Power BI Gateway -> Connect on-premise data security to power BI service.
+	5. Power BI Report Server -> For hosting power BI reports on-premises.
+
+Power BI workflow
+-----------------
+1. Extract -> Connect to data sources.(Excel, SQL, Azure, Web, APIs etc)
+2. Transform -> Clean, Shape, and Model the data using Power Query Editor.
+3. Load -> Load data into Power BI data model.
+4. Visualize -> Create interactive visuals and dashboards
+5. Share -> Publish reports to Power BI service for access anywhere
+
+Ctrl + columns -> To select multiple columns
+Query Settings Stores all the history
+Transform data opens the Power Query Editor
+
+Views
+-----
+1. Report View -> Charts are visible
+2. Table View -> data sheets are visible
+3. Model View -> Relations between Tables are visible
+
+	1. Rename -> right click on column -> Rename -> Enter
+	2. Replace values -> right click on column -> Replace -> Value to find and Replace 
+	3. Change Data Type -> right click on column -> Change Type -> Select the type -> Enter
+	4. Add Column -> click on Add column Ribbon -> Custom Column -> Put formula -> Enter
+	5. Remove Column -> right click on column -> Remove -> Enter
+	6. Undo -> click cross in Query Settings -> click x symbol
+	7. Conditional column -> click on Add column Ribbon -> name -> put conditions
+	8. Remove duplicates -> gives unique values
+	9. Merge columns -> select 2 cols by click on Ctrl + cols -> Merge -> delimiter (any symbol)
+	10. Split columns -> right click on column -> Split by delimiter -> delimiter (any symbol)
+	11. Sorting -> 
+	12. Filtering -> 
+
+'Close and apply all changes' after modifying all changes or modifications -> Power Query Editor
+'Apply Changes' after modifying all changes or modifications -> Power BI
+
+Y-axis -> Text fields (type)
+X-axis -> Count of Y-axis (numeric)
+

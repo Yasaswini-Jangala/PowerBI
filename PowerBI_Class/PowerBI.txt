@@ -1,0 +1,219 @@
+Aggregate Functions
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Sl.No| Function       | Syntax                    | Description              | Counts           | Best Used For         | Blanks | BOOLEAN  |  Expressions 
+------------------------------------------------------------------------------------------------------------------------------------------------------------ 
+|   1 | SUM            | `SUM(Table[Column])`      | Adds all numeric         | Only Numbers     | Numeric column        | ✅ Yes | ❌ No   | ❌ No       
+       		        			    	values in a column     		            totals		  	   	      
+|   2 | SUMX           | `SUMX(Table, Expression)  | Adds the result of       | Expression-based | Row-level calculated  | ✅ Yes | ❌ No   | ✅ Yes       
+       		        			      evaluating an 	       			     totals		  	   	      
+       		        			       expression row by row   			    			  	   	      
+|   3 | MIN            | `MIN(Table[Column])`      | Returns the smallest     | Only Numbers     | Finding minimum value | ✅ Yes | ❌ No   | ❌ No        
+       		        			    	numeric value in a     			  			  	   	      
+       		        			    	column		       			  			  	   	      
+|   4 | MINX           | `MINX(Table, Expression)` | Returns the minimum of   | Expression-based | Custom calculated     | ✅ Yes | ❌ No   | ✅ Yes       
+						    	the values from an				minimums
+						    	evaluated expression
+						   |	per row
+
+|   5 | MAX            | `MAX(Table[Column])`      | Returns the largest      | Only Numbers     | Finding maximum value | ✅ Yes | ❌ No   | ❌ No        
+							numeric value in
+							a column
+							
+|   6 | MAXX           | `MAXX(Table, Expression)` | Returns the maximum of   | Expression-based | Custom calculated     | ✅ Yes | ❌ No  | ✅ Yes       
+							the values from an				maximums
+							evaluated expression
+							per row
+
+|   7 | PRODUCT        | `PRODUCT(Table[Column])`  | Multiplies all numeric   | Only Numbers     | Multiplicative        | ✅ Yes | ❌ No  | ❌ No 
+							values in a column				aggregations
+
+|   8 | PRODUCTX       |PRODUCTX(Table, Expression)| Multiplies results of a  | Expression-based | Multiplying calculated| ✅ Yes | ❌ No  | ✅ Yes
+							row-wise evaluated 		    	     values
+							expression
+
+|   9 | MEDIAN         | `MEDIAN(Table[Column])`   | Returns the median value | Ignores blanks  | Central tendency       | ✅ Yes | ❌ No  | ❌ No
+							from a numeric column				analysis
+
+
+|  10 | MEDIANX        | MEDIANX(Table, Expression)| Returns the median of    | Expression-based | Median of calculated  | ✅ Yes | ❌ No  | ✅ Yes
+							values from a row-wise				values
+							evaluated expression
+
+|  11 | STDEV.P        | `STDEV.P(Table[Column])`  | Returns standard deviati-| Only Numbers     | Population data spread| ✅ Yes | ❌ No  | ❌ No
+							-on for the entire 
+							population
+
+|  12 | STDEV.S        | `STDEV.S(Table[Column])`  | Returns standard deviati-| Only Numbers     | Sample data spread    | ✅ Yes | ❌ No  | ❌ No
+							on for a sample
+
+|  13 | STDEVX.P       |STDEVX.P(Table, Expression)| Standard deviation popul-| Expression-based | Population spread     | ✅ Yes | ❌ No  | ✅ Yes
+							-ation of an expressi-	  		     from calculated 
+							-on evaluated row-wise	  		     fields
+
+|  14 | STDEVX.S       |STDEVX.S(Table, Expression)| Standard deviation sample| Expression-based | Sample spread from    | ✅ Yes | ❌ No  | ✅ Yes
+							of an expression eval-			    calculated fields
+							-uated row-wise
+
+|  15 | VAR.P          | `VAR.P(Table[Column])`    | Calculates variance for  | Only Numbers     | Population variability| ✅ Yes | ❌ No  | ❌ No
+							a population
+
+|  16 | VAR.S          | `VAR.S(Table[Column])`    | Calculates variance for  | Only Numbers     | Sample variability    | ✅ Yes | ❌ No  | ❌ No
+							a sample
+
+|  17 | VARX.P         | VARX.P(Table, Expression) | Population variance of   | Expression-based | Population variance   | ✅ Yes | ❌ No  | ✅ Yes
+ 							an expression evalua-				from calculated 
+							-ted per row.					values
+
+|  18 | VARX.S         | VARX.S(Table, Expression) | Sample variance of an    | Expression-based | Sample variance from  | ✅ Yes | ❌ No  | ✅ Yes
+							expression evaluated			     calculated values
+							per row
+
+|  19 | GEOMEAN        | `GEOMEAN(Table[Column])`  | Returns the geometric    | Only Numbers     | Financial growth rates| ✅ Yes | ❌ No  | ❌ No
+						      mean nth root of product		             or log-based data
+						      of numeric values
+
+|  20 | GEOMEANX       |GEOMEANX(Table, Expression)| Geometric mean of values | Expression-based |Calculated growth rates| ✅ Yes | ❌ No  | ✅ Yes
+						      from an expression eva-
+						      -luated row-wise
+
+|  21 | PERCENTILE.INC |PERCENTILE.INC		   | Returns the k-th perce-  | Only Numbers     | Inclusive percentile  | ✅ Yes | ❌ No  | ❌ No
+			        (Table[Column], k)    -ntile inclusive method			      analysis
+
+|  22 | PERCENTILEX.INC| PERCENTILEX.INC           |Inclusive k-th percentile| Expression-based  | Percentile on calcula-| ✅ Yes | ❌ No  | ✅ Yes
+			    (Table, Expression, k)      from row-wise evalu-			     -ted values
+							-ated expression
+
+|  23 | PERCENTILE.EXC | PERCENTILE.EXC		   | Returns the k-th percen-| Only Numbers      | Exclusive percentile  | ✅ Yes | ❌ No  | ❌ No
+			    (Table[Column], k)	      -tile using exclusive			     analysis
+						       method
+
+|  24 | PERCENTILEX.EXC| PERCENTILEX.EXC	   | Exclusive k-th percen-  | Expression-based  | Advanced percentile | ✅ Yes  | ❌ No   | ✅ Yes 
+			  (Table, Expression, k)      -tile from a row-wise 				metrics
+						       expression
+
+|  25 | RANKX          | `RANKX(Table, Expression  | Ranks rows by evaluating| Expression-based  | Ranking rows,       | ✅ Yes  | ❌ No   | ✅ Yes
+			    [, Value [, Order]])`	 an expression suppo-			    leaderboards, 
+							 -rts custom order 			    comparisons
+							  and ties
+
+|  26 | COUNT          | `COUNT(Table[Column])`    | Counts only numeric,    | Only Numbers      |Numeric field counts | ✅ Yes  | ❌ No   | ❌ No
+							non-blank values
+
+|  27 | COUNTA         | `COUNTA(Table[Column])`   | Counts all non-blank    |Text, Dates, Number| General non-blank   | ✅ Yes  | ✅ Yes  | ❌ No
+							values regardless				counting
+							of type
+
+|  28 | COUNTX         | COUNTX(Table, Expression) | Counts non-blank results| Expression-based  | Conditional/non-   | ✅ Yes   | ✅ Yes  | ✅ Yes
+							of an expression			     static counts
+							evaluated row by row
+
+|  29 | COUNTBLANK     | COUNTBLANK(Table[Column]) | Counts how many blank   | Blanks            | Data completeness | ❌ No     | ❌ No   | ❌ No
+ 							(null/empty) values 				checks
+							exist in a column
+
+|  30 | COUNTROWS      | `COUNTROWS(Table)`        | Returns total number    | All Rows          | Table size,       | ✅ Yes    | ✅ Yes  | ❌ No
+							of rows in a table			      row-based KPIs
+
+DAX Contexts
+------------
+- **Row Context**: Row-by-row logic  
+  - Used in calculated columns and iterators like `SUMX`
+- **Filter Context**: Set by visuals, slicers  
+  - Modified with `CALCULATE()`
+
+Iterators
+---------
+SUMX(Table, Table[Price] * Table[Quantity])
+AVERAGEX(Table, Table[Marks])
+MINX(Table, Table[Value])
+RANKX(ALL(Table), [Measure])
+
+Variables (VAR)
+---------------
+ProfitMargin = 
+VAR Revenue = SUM(Sales[Revenue])
+VAR Cost = SUM(Sales[Cost])
+RETURN DIVIDE(Revenue - Cost, Revenue)
+
+Error Handling
+--------------
+IFERROR(expression, alternate)
+ISBLANK([Column])
+COALESCE([Col1], [Col2], 0)
+
+Logical Functions
+-----------------
+IF(condition, true, false)
+SWITCH(expression, val1, res1, ..., else)
+AND(condition1, condition2)
+OR(condition1, condition2)
+NOT(condition)
+
+Text Functions
+--------------
+CONCATENATE("A", "B")
+LEFT([Name], 3)
+RIGHT([Name], 2)
+LEN([Text])
+TRIM([Text])
+UPPER([Text])
+LOWER([Text])
+REPLACE([Text], start, num_chars, new_text)
+
+Date & Time Functions
+---------------------
+TODAY()
+NOW()
+YEAR([Date])
+MONTH([Date])
+DAY([Date])
+HOUR([Time])
+MINUTE([Time])
+SECOND([Time])
+DATEDIFF(StartDate, EndDate, DAY)
+FORMAT([Date], "DD-MM-YYYY")
+
+Evaluation & Filter Functions
+-----------------------------
+FILTER(Table, Table[Column] > 100)
+CALCULATE([Measure], FILTER(Table, Condition))
+ALL(Table)
+ALLEXCEPT(Table, Column)
+REMOVEFILTERS(Table)
+VALUES(Table[Column])
+RELATED(Table[Column])
+RELATEDTABLE(Table)
+
+Time Intelligence Functions
+---------------------------
+SAMEPERIODLASTYEAR(Date[Date])
+PARALLELPERIOD(Date[Date], -1, MONTH)
+TOTALYTD(SUM(Sales[Amount]), Date[Date])
+DATEADD(Date[Date], -1, YEAR)
+
+Optimization Tips
+-----------------
+- Use Measures instead of Calculated Columns
+- Prefer `DIVIDE()` over `/` to avoid division errors
+- Use Star Schema in your data model
+- Avoid `CALCULATE()` inside loops unless needed
+- Use `VAR` to store and reuse expressions
+
+Common Visual Examples
+----------------------
+TotalRevenue = SUM(Sales[Amount])
+
+PreviousYearSales = 
+CALCULATE(
+    SUM(Sales[Amount]),
+    SAMEPERIODLASTYEAR(Date[Date])
+)
+
+YTDRevenue = 
+TOTALYTD(SUM(Sales[Amount]), Date[Date])
+
+Top5Customers = 
+TOPN(5, Customer, [TotalRevenue], DESC)
+
+
+
